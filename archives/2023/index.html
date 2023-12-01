@@ -1,52 +1,143 @@
-extends _partial/layout.pug
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>
+        Archives: 2023 |
+        
+        Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/archives/2023/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+        
+            <link rel="stylesheet" href="http://example.com/css/markdown.css">
+        
+            <link rel="stylesheet" href="http://example.com/css/july.css">
+        
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
 
-block cssFile
-    link(rel="stylesheet" href="/css/archive.css")
-    link(rel="stylesheet" href="/css/index.css")
+<div id="banner-outer" class="hidden">
+    <div id="banner-image" style="background-image: url()"></div>
+    <img src="https://www.gravatar.com/avatar/7a585313ed855e8d652cbb3154a6056e?s=300&amp;d=mm&amp;r=g" id="avatar">
+</div>
 
-block main
-    .maxwidth
-        include _partial/sidebar.pug
-        .archive.rightside
-            if is_category()
-                .artititle!= page.category
-                include _partial/posts.pug
-            if is_archive() && !is_year()
-                #list_archives(style='opacity: 0;display:  none')
-                    #arshow.switch
-                        i.iconfont.iconarchives
-                    != list_archives({})
-                if page.posts.length > 0
-                    #normalposts
-                        #poshow.switch
-                            i.iconfont.iconshijian
-                            span Timeline
-                        each post in page.posts.sort('date', -1).limit(10).toArray()
-                            article
-                                a.artititle(href=url_for(post.path))= post.title
-                                .content.ellipse
-                                    p!= truncate(trim(strip_html(post.content)), {length: 400})
-                                    //- p!= word_wrap(trim(strip_html(post.content)))
-                                .meta
-                                    if min2read
-                                        i.iconfont.iconshijian(title="阅读时长")= min2read(post.content)
-                                    if wordcount
-                                        i.iconfont.iconwenzi(title="字数")= wordcount(post.content)
-                                    i.iconfont.iconshijian(title="创建时间")= date(post.date, "YYYY-MM-DD")
-                        #paginator!= paginator()
-                script.
-                    document.getElementById('arshow').onclick = function() {
-                        document.getElementById('list_archives').style = 'opacity: 0;display: none'
-                        document.getElementById('normalposts').style = 'opacity: 0;display: block'
-                        setTimeout(() => {
-                            document.getElementById('normalposts').style.opacity = '1'                        
-                        }, 100);
-                    }
-                    document.getElementById('poshow').onclick = function() {
-                        document.getElementById('normalposts').style = 'opacity: 0;display: none'
-                        document.getElementById('list_archives').style = 'opacity: 1;display: block'
-                    }
-            if is_year()
-                .artititle= page.month + '/' + page.year
-                include _partial/posts.pug
-        include _partial/footer.pug
+<div id="menu-outer">
+    <div id="menu-inner">
+        
+            <a class="false" href="http://example.com/index.html">Home</a>
+        
+            <a class="active" href="http://example.com/archives/index.html">Archives</a>
+        
+            <a class="false" href="http://example.com/about/index.html">About</a>
+        
+    </div>
+</div>
+
+<div id="content-outer" class="container">
+    <div id="content-inner">
+        
+
+
+
+
+  <h3 class="widget-title">undefined/2023</h3>
+
+  
+    <div class="archive-item">
+      <a href="/2023/12/01/b/">
+        b
+      </a>
+      <time datetime="2023-12-01T01:40:33.000Z">
+        December 01, 2023
+      </time>
+    </div>
+  
+    <div class="archive-item">
+      <a href="/2023/12/01/a/">
+        a
+      </a>
+      <time datetime="2023-12-01T01:40:00.000Z">
+        December 01, 2023
+      </time>
+    </div>
+  
+    <div class="archive-item">
+      <a href="/2023/11/30/x/">
+        x
+      </a>
+      <time datetime="2023-11-30T01:53:29.000Z">
+        November 30, 2023
+      </time>
+    </div>
+  
+    <div class="archive-item">
+      <a href="/2023/11/30/hello-world/">
+        Hello World
+      </a>
+      <time datetime="2023-11-30T01:47:04.640Z">
+        November 30, 2023
+      </time>
+    </div>
+  
+
+  <div id="paginator">
+    <span class="page-number current">1</span>
+  </div>
+
+
+
+    </div>
+</div>
+
+<div id="bottom-outer">
+    <div id="bottom-inner">
+        2019-2023 John Doe 皖ICP备16011445号
+    </div>
+</div>
+
+<div id="to-top">
+    <i class="iconfont icon-up"></i>
+</div>
+
+
+    
+        <script src="http://example.com/js/jquery-3.4.1.min.js"></script>
+    
+        <script src="http://example.com/js/highlight-9.13.1.min.js"></script>
+    
+        <script src="http://example.com/js/transition.js"></script>
+    
+        <script src="http://example.com/js/smooth-scroll.min.js"></script>
+    
+
+
+
+
+<script>
+  $(function () {
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 150) {
+        $("#to-top").fadeIn();
+      } else {
+        $("#to-top").fadeOut();
+      }
+    });
+    $("#to-top").click(function () {
+      $("body,html").animate({scrollTop: 0}, 500);
+      return false;
+    })
+  })
+</script>
+</body>
+</html>

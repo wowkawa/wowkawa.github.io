@@ -1,33 +1,119 @@
-extends _partial/layout.pug
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>
+        b |
+        
+        Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="b">
+<meta property="og:url" content="http://example.com/2023/12/01/b/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-01T01:40:33.000Z">
+<meta property="article:modified_time" content="2023-12-01T01:40:33.259Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+        
+            <link rel="stylesheet" href="http://example.com/css/markdown.css">
+        
+            <link rel="stylesheet" href="http://example.com/css/july.css">
+        
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
 
-block cssFile
-    link(rel="stylesheet" href="/css/post.css")
-    link(rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css")
-block main
-    .maxwidth
-        include _partial/sidebar.pug
-        .post.rightside
-            .artititle= page.title
-            .info
-                if wordcount
-                    i.iconfont.iconwenzi(title="字数")= wordcount(page.content)
-                if min2read
-                    i.iconfont.iconshijian(title="阅读时长")= min2read(page.content)
-                if page.categories.length > 0
-                    i.iconfont.iconarchives(title="文章分类")
-                        each category in page.categories.toArray()
-                            span= category.name
-                if page.tags.length > 0
-                    i.iconfont.iconbiaoqian(title="文章标签")
-                        each tag in page.tags.toArray()
-                            span= tag.name
-                i.iconfont.iconshijian
-                    span(title="文章发布时间")= date(page.date, "YYYY-MM-DD") 
-            .postDetail!= page.content
-            if (page.copyright)
-                include _partial/copyright.pug
-            if (theme.Gitalk.client_id && theme.Gitalk.client_secret && theme.Gitalk.enable)
-                include _partial/comment.pug
-        include _partial/footer.pug
-//- block js
-//-     script(src="/js/hexo.js")
+<div id="banner-outer" class="hidden">
+    <div id="banner-image" style="background-image: url()"></div>
+    <img src="https://www.gravatar.com/avatar/7a585313ed855e8d652cbb3154a6056e?s=300&amp;d=mm&amp;r=g" id="avatar">
+</div>
+
+<div id="menu-outer">
+    <div id="menu-inner">
+        
+            <a class="false" href="http://example.com/index.html">Home</a>
+        
+            <a class="false" href="http://example.com/archives/index.html">Archives</a>
+        
+            <a class="false" href="http://example.com/about/index.html">About</a>
+        
+    </div>
+</div>
+
+<div id="content-outer" class="container">
+    <div id="content-inner">
+        <article id="post">
+    <h1 id="post-title">b</h1>
+    <time id="post-date" datetime="2023-12-01T01:40:33.000Z">
+        December 01, 2023
+    </time>
+    <div id="post-content" class="markdown-body">
+        
+    </div>
+</article>
+
+<div id="paginator">
+    
+</div>
+
+    </div>
+</div>
+
+<div id="bottom-outer">
+    <div id="bottom-inner">
+        2019-2023 John Doe 皖ICP备16011445号
+    </div>
+</div>
+
+<div id="to-top">
+    <i class="iconfont icon-up"></i>
+</div>
+
+
+    
+        <script src="http://example.com/js/jquery-3.4.1.min.js"></script>
+    
+        <script src="http://example.com/js/highlight-9.13.1.min.js"></script>
+    
+        <script src="http://example.com/js/transition.js"></script>
+    
+        <script src="http://example.com/js/smooth-scroll.min.js"></script>
+    
+
+
+
+    <script>
+      $(function () {
+        $('#banner-outer').addClass('fade-out')
+        $('#menu-outer').addClass('fade-show')
+
+        $('pre').each(function (i, block) {
+          hljs.highlightBlock(block);
+        });
+      })
+    </script>
+
+
+<script>
+  $(function () {
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 150) {
+        $("#to-top").fadeIn();
+      } else {
+        $("#to-top").fadeOut();
+      }
+    });
+    $("#to-top").click(function () {
+      $("body,html").animate({scrollTop: 0}, 500);
+      return false;
+    })
+  })
+</script>
+</body>
+</html>
