@@ -1,119 +1,214 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    
-    <title>
-        b |
-        
-        Hexo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:type" content="article">
-<meta property="og:title" content="b">
-<meta property="og:url" content="http://example.com/2023/12/01/b/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-12-01T01:40:33.000Z">
-<meta property="article:modified_time" content="2023-12-01T01:40:33.259Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-    
-    
-    
-        
-            <link rel="stylesheet" href="http://example.com/css/markdown.css">
-        
-            <link rel="stylesheet" href="http://example.com/css/july.css">
-        
-    
+    <meta charset="utf-8" />
+    <title>b | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
 <meta name="generator" content="Hexo 7.0.0"></head>
 <body>
-
-<div id="banner-outer" class="hidden">
-    <div id="banner-image" style="background-image: url()"></div>
-    <img src="https://www.gravatar.com/avatar/7a585313ed855e8d652cbb3154a6056e?s=300&amp;d=mm&amp;r=g" id="avatar">
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
 </div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
 
-<div id="menu-outer">
-    <div id="menu-inner">
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>b</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/12/1
+        </span>
         
-            <a class="false" href="http://example.com/index.html">Home</a>
-        
-            <a class="false" href="http://example.com/archives/index.html">Archives</a>
-        
-            <a class="false" href="http://example.com/about/index.html">About</a>
         
     </div>
-</div>
-
-<div id="content-outer" class="container">
-    <div id="content-inner">
-        <article id="post">
-    <h1 id="post-title">b</h1>
-    <time id="post-date" datetime="2023-12-01T01:40:33.000Z">
-        December 01, 2023
-    </time>
-    <div id="post-content" class="markdown-body">
+    
+    <div class="content" v-pre>
         
     </div>
-</article>
-
-<div id="paginator">
+    
+    
+    
+    
+    
+    
     
 </div>
 
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
     </div>
-</div>
+</footer>
 
-<div id="bottom-outer">
-    <div id="bottom-inner">
-        2019-2023 John Doe 皖ICP备16011445号
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
     </div>
-</div>
-
-<div id="to-top">
-    <i class="iconfont icon-up"></i>
-</div>
-
-
+    <script src="/js/main.js"></script>
     
-        <script src="http://example.com/js/jquery-3.4.1.min.js"></script>
-    
-        <script src="http://example.com/js/highlight-9.13.1.min.js"></script>
-    
-        <script src="http://example.com/js/transition.js"></script>
-    
-        <script src="http://example.com/js/smooth-scroll.min.js"></script>
     
 
 
 
-    <script>
-      $(function () {
-        $('#banner-outer').addClass('fade-out')
-        $('#menu-outer').addClass('fade-show')
 
-        $('pre').each(function (i, block) {
-          hljs.highlightBlock(block);
-        });
-      })
-    </script>
-
-
-<script>
-  $(function () {
-    $(window).scroll(function () {
-      if ($(window).scrollTop() > 150) {
-        $("#to-top").fadeIn();
-      } else {
-        $("#to-top").fadeOut();
-      }
-    });
-    $("#to-top").click(function () {
-      $("body,html").animate({scrollTop: 0}, 500);
-      return false;
-    })
-  })
-</script>
+    
 </body>
 </html>
